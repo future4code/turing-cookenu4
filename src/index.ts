@@ -3,14 +3,14 @@ import express from 'express';
 import { AddressInfo } from 'net';
 // import { getAllStudents } from './endpoints/getAllStudents';
 // import { login } from './endpoints/login';
-// import { signUp } from './endpoints/signUp';
+import { SignUp } from './endpoints/SignUp';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-// app.post('/user/signup', signUp);
+app.post('/user/signup', SignUp);
 // app.post('/user/login', login);
 // app.get('/students', getAllStudents);
 
