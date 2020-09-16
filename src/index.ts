@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import { AddressInfo } from 'net';
-// import { getAllStudents } from './endpoints/getAllStudents';
+import { GetProfile } from './endpoints/GetProfile';
 import { Login } from './endpoints/Login';
 import { SignUp } from './endpoints/SignUp';
 
@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.post('/user/signup', SignUp);
 app.post('/user/login', Login);
-// app.get('/students', getAllStudents);
+app.get('/user/profile', GetProfile);
 
 
 const server = app.listen(process.env.PORT || 3000, () => {
