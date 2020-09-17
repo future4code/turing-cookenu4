@@ -26,6 +26,14 @@ export class UserDatabase extends BaseDatabase {
             }).into(UserDatabase.TABLE_RECIPE)
     }
 
+    public async getRecipeById(id: string): Promise<any> {
+        const result = await this.getConnection()
+            .select('*')
+            .from(UserDatabase.TABLE_RECIPE)
+            .where({id})
+        return result[0]
+    }
+
     public async getUserByEmail(email: string): Promise<any> {
         const result = await this.getConnection()
             .select('*')
