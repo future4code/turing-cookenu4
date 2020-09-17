@@ -4,6 +4,7 @@ import moment, { Moment } from 'moment';
 export class UserDatabase extends BaseDatabase {
     private static TABLE_NAME: string = 'UserCookenu';
     private static TABLE_RECIPE: string = 'Recipe';
+    private static TABLE_FOLLOW: string = 'UserFollow';
 
     public async createUser(id: string, name: string, email: string, password: string): Promise<void> {
         await this.getConnection()
@@ -24,6 +25,14 @@ export class UserDatabase extends BaseDatabase {
                 data,
                 userCookenu_id
             }).into(UserDatabase.TABLE_RECIPE)
+    }
+
+    public async userFollow(userFollower_id: string, userFollowed_id: string): Promise<void> {
+        await this.getConnection()
+            .insert({
+                userFollower_id,
+                userFollowed_id
+            }).into(UserDatabase.TABLE_FOLLOW)
     }
 
     public async getRecipeById(id: string): Promise<any> {

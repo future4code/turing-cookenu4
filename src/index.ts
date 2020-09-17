@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import { AddressInfo } from 'net';
 import { CreateRecipe } from './endpoints/CreateRecipe';
+import { FollowUser } from './endpoints/FollowUser';
 import { GetAnotherProfile } from './endpoints/GetAnotherProfile';
 import { GetProfile } from './endpoints/GetProfile';
 import { GetRecipe } from './endpoints/GetRecipe';
@@ -19,6 +20,7 @@ app.get('/user/profile', GetProfile);
 app.get('/user/:id', GetAnotherProfile);
 app.post('/recipe', CreateRecipe);
 app.get('/recipe/:id', GetRecipe);
+app.post('/user/follow', FollowUser);
 
 
 const server = app.listen(process.env.PORT || 3000, () => {
