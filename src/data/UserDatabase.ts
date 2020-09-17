@@ -35,6 +35,13 @@ export class UserDatabase extends BaseDatabase {
             }).into(UserDatabase.TABLE_FOLLOW)
     }
 
+    public async userUnfollow(userFollower_id: string, userFollowed_id: string): Promise<void> {
+        await this.getConnection()
+            .delete()
+            .from(UserDatabase.TABLE_FOLLOW)
+            .where({userFollower_id, userFollowed_id})
+    }
+
     public async getRecipeById(id: string): Promise<any> {
         const result = await this.getConnection()
             .select('*')
