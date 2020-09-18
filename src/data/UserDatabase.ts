@@ -42,6 +42,19 @@ export class UserDatabase extends BaseDatabase {
             .where({userFollower_id, userFollowed_id})
     }
 
+    public async getFeedUser(userId: string): Promise<any> {
+        const result = await this.getConnection()
+            .raw(`
+                SELECT Recipe.id, title, description, data, Recipe.userCookenu_id as userId, UserCookenu.name
+                FROM UserCookenu
+                JOIN Recipe on UserCookenu.id = Recipe.userCookenu_id
+                JOIN UserFollow on Recipe.userCookenu_id = UserFollow.userFollowed_id
+                WHERE userFollower_id = "${userId}"
+                ORDER BY Recipe.data DESC;
+            `)
+        return result[0]
+    }
+
     public async getRecipeById(id: string): Promise<any> {
         const result = await this.getConnection()
             .select('*')
