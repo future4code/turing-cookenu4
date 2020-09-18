@@ -1,6 +1,5 @@
 import { Request, Response} from 'express';
 import { UserDatabase } from '../data/UserDatabase';
-import {IdGenerator} from '../services/IdGenerator';
 import { Authenticator } from '../services/Authenticator';
 import { BaseDatabase } from '../data/BaseDatabase';
 

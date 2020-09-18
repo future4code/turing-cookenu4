@@ -1,5 +1,4 @@
 import { BaseDatabase } from "./BaseDatabase";
-import moment, { Moment } from 'moment';
 
 export class UserDatabase extends BaseDatabase {
     private static TABLE_NAME: string = 'UserCookenu';

@@ -13,7 +13,7 @@ export const Login = async (req: Request, res: Response) => {
         }
 
         if (!userData.email || !userData.password) {
-            throw new Error("Insert all required information")
+            throw new Error("Insira todas as informações")
         }
 
         const userDatabase = new UserDatabase();
@@ -23,14 +23,14 @@ export const Login = async (req: Request, res: Response) => {
         const isPasswordCorrect = await hashManager.compare(userData.password, user.password);
 
         if(!isPasswordCorrect){
-            throw new Error("Email or password incorrect")
+            throw new Error("Email ou senha incorretos")
         }
 
         const authenticator = new Authenticator();
         const token = authenticator.generateToken({id: user.id})
 
         res.status(200).send({
-            message: "User successfully logged in",
+            message: "Usuário logado com sucesso",
             token
         })
     } catch(error) {

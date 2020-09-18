@@ -9,7 +9,6 @@ import { GetRecipe } from './endpoints/GetRecipe';
 import { Login } from './endpoints/Login';
 import { SignUp } from './endpoints/SignUp';
 import { UnfollowUser } from './endpoints/UnfollowUser';
-import { UserDatabase } from './data/UserDatabase';
 import { GetRecipeFeed } from './endpoints/GetRecipeFeed';
 
 

@@ -20,7 +20,7 @@ export const CreateRecipe = async (req: Request, res: Response) => {
         const authenticator = new Authenticator();
         const userDb = authenticator.getData(token);
         if (!userDb) {
-            throw new Error ("User dont have authorization")
+            throw new Error ("Usuário não tem autorização")
         }
 
         const idGenerator = new IdGenerator();
